@@ -1,0 +1,211 @@
+package StudentManagement;
+
+
+
+import javax.swing.*;
+
+import java.util.ArrayList;
+
+
+
+public class StudentManagementUI extends JFrame {
+
+
+
+    JTextField nameField, ageField, gradeField, deleteIdField, updateIdField;
+
+    JTextArea output;
+
+
+
+    public StudentManagementUI() {
+
+
+
+        setTitle("Student Management System");
+
+        setSize(550, 600);
+
+        setLayout(null);
+
+
+
+        // Name
+
+        add(new JLabel("Name:")).setBounds(20, 20, 100, 30);
+
+        nameField = new JTextField();
+
+        nameField.setBounds(120, 20, 150, 30);
+
+        add(nameField);
+
+
+
+        // Age
+
+        add(new JLabel("Age:")).setBounds(20, 60, 100, 30);
+
+        ageField = new JTextField();
+
+        ageField.setBounds(120, 60, 150, 30);
+
+        add(ageField);
+
+
+
+        // Grade
+
+        add(new JLabel("Grade:")).setBounds(20, 100, 100, 30);
+
+        gradeField = new JTextField();
+
+        gradeField.setBounds(120, 100, 150, 30);
+
+        add(gradeField);
+
+
+
+        // Add Student Button
+
+        JButton addBtn = new JButton("Add Student");
+
+        addBtn.setBounds(300, 20, 200, 30);
+
+        add(addBtn);
+
+        addBtn.addActionListener(e -> {
+
+            StudentDAO.addStudent(nameField.getText(),
+
+                                  Integer.parseInt(ageField.getText()),
+
+                                  gradeField.getText());
+
+            showStudents();
+
+        });
+
+
+
+        // Show All Students
+
+        JButton showBtn = new JButton("Show All Students");
+
+        showBtn.setBounds(300, 60, 200, 30);
+
+        add(showBtn);
+
+        showBtn.addActionListener(e -> showStudents());
+
+
+
+        // Delete ID
+
+        add(new JLabel("Delete ID:")).setBounds(20, 160, 100, 30);
+
+        deleteIdField = new JTextField();
+
+        deleteIdField.setBounds(120, 160, 150, 30);
+
+        add(deleteIdField);
+
+
+
+        JButton delBtn = new JButton("Delete Student");
+
+        delBtn.setBounds(300, 160, 200, 30);
+
+        add(delBtn);
+
+        delBtn.addActionListener(e -> {
+
+            StudentDAO.deleteStudent(Integer.parseInt(deleteIdField.getText()));
+
+            showStudents();
+
+        });
+
+
+
+        // Update ID
+
+        add(new JLabel("Update ID:")).setBounds(20, 220, 100, 30);
+
+        updateIdField = new JTextField();
+
+        updateIdField.setBounds(120, 220, 150, 30);
+
+        add(updateIdField);
+
+
+
+        JButton updateBtn = new JButton("Update Student");
+
+        updateBtn.setBounds(300, 220, 200, 30);
+
+        add(updateBtn);
+
+        updateBtn.addActionListener(e -> {
+
+            StudentDAO.updateStudent(
+
+                Integer.parseInt(updateIdField.getText()),
+
+                nameField.getText(),
+
+                Integer.parseInt(ageField.getText()),
+
+                gradeField.getText()
+
+            );
+
+            showStudents();
+
+        });
+
+
+
+        // Output Area
+
+        output = new JTextArea();
+
+        JScrollPane scroll = new JScrollPane(output);
+
+        scroll.setBounds(20, 270, 500, 280);
+
+        add(scroll);
+
+
+
+        setVisible(true);
+
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+    }
+
+
+
+    public void showStudents() {
+
+        ArrayList<Student> list = StudentDAO.getStudents();
+
+        output.setText("");
+
+        for (Student s : list) {
+
+            output.append("ID: " + s.id + " | Name: " + s.name + " | Age: " + s.age + " | Grade: " + s.grade + "\n");
+
+        }
+
+    }
+
+
+
+    public static void main(String[] args) {
+
+        new StudentManagementUI();
+
+    }
+
+}
