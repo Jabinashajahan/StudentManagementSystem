@@ -1,0 +1,133 @@
+package StudentManagement;
+
+import java.sql.*;
+
+import java.util.ArrayList;
+
+
+
+public class StudentDAO {
+
+
+
+    public static void addStudent(String name, int age, String grade) {
+
+        try {
+
+            Connection con = DBConnection.getConnection();
+
+            String sql = "INSERT INTO students(name, age, grade) VALUES (?, ?, ?)";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, name);
+
+            ps.setInt(2, age);
+
+            ps.setString(3, grade);
+
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+
+
+    public static ArrayList<Student> getStudents() {
+
+        ArrayList<Student> list = new ArrayList<>();
+
+        try {
+
+            Connection con = DBConnection.getConnection();
+
+            Statement st = con.createStatement();
+
+            ResultSet rs = st.executeQuery("SELECT * FROM students");
+
+            while (rs.next()) {
+
+                list.add(new Student(
+
+                    rs.getInt("id"),
+
+                    rs.getString("name"),
+
+                    rs.getInt("age"),
+
+                    rs.getString("grade")
+
+                ));
+
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+        return list;
+
+    }
+
+
+
+    public static void updateStudent(int id, String name, int age, String grade) {
+
+        try {
+
+            Connection con = DBConnection.getConnection();
+
+            String sql = "UPDATE students SET name=?, age=?, grade=? WHERE id=?";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, name);
+
+            ps.setInt(2, age);
+
+            ps.setString(3, grade);
+
+            ps.setInt(4, id);
+
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+
+
+    public static void deleteStudent(int id) {
+
+        try {
+
+            Connection con = DBConnection.getConnection();
+
+            String sql = "DELETE FROM students WHERE id=?";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setInt(1, id);
+
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+}
