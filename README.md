@@ -37,5 +37,20 @@ This project is a desktop-based Student Management System built using Java Swing
 - 📊 Add dashboard and analytics
 - 🚀 Rebuild using JavaFX or convert to a web app
 
+  📸 Outputs / Screenshots
+
+Below are the screenshots of the application interface and features.  
+Replace the placeholder image links with your own uploaded images. 
+   
+➕ Add Student Output
+   <img width="552" height="597" alt="Screenshot 2025-12-11 154525" src="https://github.com/user-attachments/assets/66f01a0b-5727-4770-bbb0-b2dbb4ab2362" />
+ 
+✏️ Update Student Output  
+   <img width="553" height="597" alt="Screenshot 2025-12-11 154428" src="https://github.com/user-attachments/assets/e190e82b-4ba3-4e4e-a3c4-712a0ab3a0be" />
+
+❌ Delete Student Output
+   <img width="549" height="613" alt="Screenshot 2025-12-11 154322" src="https://github.com/user-attachments/assets/bdb22e33-bd71-4ce3-914c-c697f5be096f" />
+
+
 🤝 Contribution:
 Anyone can fork this project and contribute improvements.
