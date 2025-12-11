@@ -45,7 +45,8 @@ Below are the screenshots of the application interface and features.
    <img width="552" height="597" alt="Screenshot 2025-12-11 154525" src="https://github.com/user-attachments/assets/66f01a0b-5727-4770-bbb0-b2dbb4ab2362" />
  
 ✏️ Update Student Output  
-   <img width="553" height="597" alt="Screenshot 2025-12-11 154428" src="https://github.com/user-attachments/assets/e190e82b-4ba3-4e4e-a3c4-712a0ab3a0be" />
+  <img width="557" height="624" alt="Screenshot 2025-12-11 153150" src="https://github.com/user-attachments/assets/40852e30-a044-4a88-a94f-988924142cd7" />
+
 
 ❌ Delete Student Output
    <img width="549" height="613" alt="Screenshot 2025-12-11 154322" src="https://github.com/user-attachments/assets/bdb22e33-bd71-4ce3-914c-c697f5be096f" />
